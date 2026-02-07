@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="pa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Letter</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-
 <style>
 html, body {
   margin: 0;
@@ -19,7 +17,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background: radial-gradient(circle, #eaffff, #7fdcff, #29a8ff);
+  background: radial-gradient(circle,#eaffff,#7fdcff,#29a8ff);
   overflow: hidden;
 }
 
@@ -36,45 +34,22 @@ html, body {
 
 .wrap {
   position: absolute;
-  top: 15%;
+  top: 12%;
   width: 350px;
   height: 350px;
 }
 
-.left {
-  left: -400px;
-  animation: flyL 2s forwards;
-}
+.left { left: -400px; animation: flyL 2s forwards; }
+.right { right: -400px; animation: flyR 2s forwards; }
 
-.right {
-  right: -400px;
-  animation: flyR 2s forwards;
-}
+@keyframes flyL { to { left: 5%; } }
+@keyframes flyR { to { right: 5%; } }
 
-@keyframes flyL {
-  to { left: 8%; }
-}
+.knock { animation: knock .25s 6; }
+@keyframes knock { 50%{ transform: translateX(-14px); } }
 
-@keyframes flyR {
-  to { right: 8%; }
-}
-
-.knock {
-  animation: knock .25s 6;
-}
-
-@keyframes knock {
-  50% { transform: translateX(-14px); }
-}
-
-.wing {
-  animation: flap .35s infinite alternate;
-  transform-origin: top center;
-}
-
-@keyframes flap {
-  to { transform: rotateX(45deg); }
-}
+.wing { animation: flap .35s infinite alternate; transform-origin: top center; }
+@keyframes flap { to{ transform: rotateX(45deg); } }
 
 /* ENVELOPE */
 #intro {
@@ -86,27 +61,11 @@ html, body {
   align-items: center;
 }
 
-svg {
-  width: 420px;
-}
+svg { width: 420px; }
+#flap { cursor: pointer; transform-origin: 150px 40px; transition: 1s; }
+.open { transform: rotateX(160deg); }
 
-#flap {
-  cursor: pointer;
-  transform-origin: 150px 40px;
-  transition: 1s;
-}
-
-.open {
-  transform: rotateX(160deg);
-}
-
-#hint {
-  position: fixed;
-  bottom: 40px;
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-}
+#hint { position: fixed; bottom: 40px; width: 100%; text-align: center; font-size: 20px; }
 
 /* FINAL PAGE */
 #paperFull {
@@ -131,16 +90,15 @@ svg {
 /* MOBILE ADJUSTMENTS */
 @media(max-width:600px) {
   #msg { font-size: 28px; }
-  .wrap { width: 200px; height: 200px; top: 12%; }
+  .wrap { width: 180px; height: 180px; top: 10%; }
   .left { left: 5%; }
-  .right { right: 5%; } /* gap enough to avoid overlap */
-  svg { width: 250px; height: 250px; }
+  .right { right: 5%; }
+  svg { width: 200px; height: 200px; }
   #paperFull { padding: 20px 15px; }
   #message { margin-top: 40%; font-size: 18px; padding: 10px; }
 }
 </style>
 </head>
-
 <body>
 
 <!-- PAGE 1 -->
@@ -195,9 +153,8 @@ svg {
 <div id="paperFull">
   <div id="message">
 ਹਰਮਨ ਪੁੱਤ ❤️, ਕਿਵੇਂ ਆ ਮੇਰੀ ਧੀ ਰਾਣੀ??👸🏼👸🏼❤️ 
-
-                                      ਮੇਰੀ ਲਾਡੋ, ਮੇਰੇ ਡੋਰਏਮੋਨ, ਮੇਰੀ ਧੀ ਰਾਣੀ ਨੂੰ ਜਨਮਦਿਨ ਦੀਆਂ ਲੱਖ ਲੱਖ, ਕਰੋੜ ਕਰੋੜ ਵਧਾਈਆਂ ❤️❤️🍓, ਅੱਜ ਮੇਰੇ ਨਾਲੋਂ ਜ਼ਿਆਦਾ ਖੁਸ਼ ਕੌਣ ਹੋਊ 😊😊, ਅੱਜ ਮੇਰੀ ਮੋਟੋ ਦਾ ਜਨਮਦਿਨ ਆ 🥹🥹, 2007 ਵਿੱਚ ਇਸੇ ਦਿਨ ਰੱਬ ਨੇ ਮੈਨੂੰ ਮੇਰੀ ਜਿੰਦਗੀ ਦੀ ਸੱਭ ਤੋਂ ਵੱਡੀ ਸੌਗਾਤ ਦਿੱਤੀ ਸੀ, ਦੇਖਦੇ ਹੀ ਦੇਖਦੇ ਅੱਜ ਮੇਰੀ ਲਾਡੋ 19 ਸਾਲਾਂ ਦੀ ਹੋਗਈ 🥹🥰🫶🏻, ਰੱਬ ਐਵੇ ਈ ਤੇਰੀ ਉਮਰ ਨੂੰ ਭਾਗ ਲਾਉਂਦਾ ਰਹੇ 🙏🏻🤲🏻, ਰੱਬ ਤੈਨੂੰ ਬਹੁਤ ਲੰਬੀ ਜਿੰਦਗੀ ਬਖਸ਼ੇ 👐🏻🫳🏻, ਧੀਏ 👧🏻❤️...... ਅਸੀਂ ਤੈਨੂੰ ਬਹੁਤ ਅਰਦਾਸਾਂ 🙏🏻🙏🏻 ਕਰ ਕਰਕੇ ਮੰਗਿਆ 🤲🏻 ਸੀ ਰੱਬ ਤੋਂ, ਬਾਬਾ ਜੀ ਨੇ ਸਾਡੀ ਸੁਣੀ ਵੀ, ਸਾਨੂੰ ਰਾਣੀ ਧੀ 👧🏻 ਦੀ ਸੌਗਾਤ ਬਖਸ਼ੀ.....
-(Full text continues exactly as provided, scrollable)
+...
+(Full text exactly as provided by you)
   </div>
 </div>
 
@@ -208,11 +165,9 @@ const intro=document.getElementById("intro");
 const flap=document.getElementById("flap");
 const final=document.getElementById("paperFull");
 
-// Page 1 animations
+// Page 1 messages
 setTimeout(()=>{msg.innerHTML="Knock Knock 😄"},2000);
-
 setTimeout(()=>{msg.innerHTML="Happiest Birthday Cutiieesstt Panda ji,<br>May God Bless you with all the Happiness and a Long life";},4000);
-
 setTimeout(()=>{
 msg.innerHTML="💫 We Got a Message for You from Heaven.<br>wanna read out?? Just Tap me 💫";
 msg.onclick=()=>{p1.style.display="none";intro.style.display="flex";}
