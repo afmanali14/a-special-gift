@@ -32,7 +32,7 @@ cursor:pointer;
 .left{left:-380px;animation:flyL 2s forwards}
 .right{right:-380px;animation:flyR 2s forwards}
 @keyframes flyL{to{left:8%}}
-@keyframes flyR{to{right:8%}}
+@keyframes flyR{to{right:48%}}  /* gap increased for mobile overlapping */
 
 .knock{animation:knock .25s 6}
 @keyframes knock{50%{transform:translateX(-14px)}}
@@ -100,9 +100,9 @@ color:#000;
 /* MOBILE ADJUSTMENTS */
 @media(max-width:600px){
 #msg{font-size:28px}
-.wrap{width:200px;height:200px;top:12%}  /* reduced size for mobile */
+.wrap{width:200px;height:200px;top:12%}  
 .left{left:5%}
-.right{right:65%}  /* enough gap to prevent overlap */
+.right{right:55%}  /* gap further increased to avoid overlap */
 svg{width:250px;height:250px}
 #photo{width:300px;height:300px;top:45%}
 #message{margin-top:40%;font-size:18px;padding:15px}
