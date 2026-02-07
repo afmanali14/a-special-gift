@@ -31,9 +31,9 @@ line-height:1.2;
 }
 
 /* WRAP BIRDS */
-.wrap{position:absolute;top:5%;width:600px;height:600px} /* parrots aur bada kiya */
-.left{left:-650px;animation:flyL 2s forwards}
-.right{right:-650px;animation:flyR 2s forwards}
+.wrap{position:absolute;top:5%;width:450px;height:450px} /* parrots thode chhote kiye */
+.left{left:-500px;animation:flyL 2s forwards}
+.right{right:-500px;animation:flyR 2s forwards}
 @keyframes flyL{to{left:5%}}
 @keyframes flyR{to{right:5%}}
 
@@ -115,10 +115,10 @@ textarea{width:100%;height:200px}
 
 /* MEDIA QUERIES FOR MOBILE */
 @media(max-width:600px){
-.wrap{width:300px;height:300px;top:5%} /* mobile par parrots bada */
-svg{width:300px;height:300px}
+.wrap{width:250px;height:250px;top:5%} /* mobile par parrots chhote */
+svg{width:250px;height:250px}
 #msg{font-size:32px;top:60%} /* mobile text */
-#photo{width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%)} /* mobile photo bada */
+#photo{width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%)} /* mobile photo */
 #message{font-size:20px;padding:15px}
 }
 </style>
@@ -130,7 +130,7 @@ svg{width:300px;height:300px}
 <div id="p1" class="page">
 
 <div class="wrap left">
-<svg id="leftBird" width="600" height="600" viewBox="0 0 340 340">
+<svg id="leftBird" width="450" height="450" viewBox="0 0 340 340">
 
 <ellipse cx="170" cy="30" rx="80" ry="16" fill="none" stroke="white" stroke-width="5"/>
 
@@ -151,7 +151,7 @@ svg{width:300px;height:300px}
 </div>
 
 <div class="wrap right">
-<svg width="600" height="600" viewBox="0 0 340 340">
+<svg width="450" height="450" viewBox="0 0 340 340">
 
 <ellipse cx="170" cy="30" rx="80" ry="16" fill="none" stroke="white" stroke-width="5"/>
 
