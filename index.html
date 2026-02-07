@@ -18,12 +18,12 @@ overflow:hidden;
 
 #msg{
 position:absolute;
-top:55%;  /* text ko lower half ke upper portion me shift kiya */
+top:55%;  /* text lower half ke upper portion me */
 width:90%;
 left:50%;
 transform:translateX(-50%);
 text-align:center;
-font-size:56px; /* text bada */
+font-size:60px; /* text aur bada */
 color:white;
 text-shadow:0 0 30px cyan;
 cursor:pointer;
@@ -31,9 +31,9 @@ line-height:1.2;
 }
 
 /* WRAP BIRDS */
-.wrap{position:absolute;top:10%;width:500px;height:500px} /* parrots aur bada kiya */
-.left{left:-550px;animation:flyL 2s forwards}
-.right{right:-550px;animation:flyR 2s forwards}
+.wrap{position:absolute;top:5%;width:600px;height:600px} /* parrots aur bada kiya */
+.left{left:-650px;animation:flyL 2s forwards}
+.right{right:-650px;animation:flyR 2s forwards}
 @keyframes flyL{to{left:5%}}
 @keyframes flyR{to{right:5%}}
 
@@ -84,9 +84,9 @@ position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-width:700px; /* aur bada */
+width:900px; /* aur bada */
 max-width:95vw;
-height:700px;
+height:900px;
 max-height:95vw;
 border-radius:50%;
 overflow:hidden;
@@ -99,7 +99,7 @@ pointer-events:none;
 #message{
 margin-top:20px;
 padding:30px;
-font-size:24px; /* text bada */
+font-size:26px; /* text bada */
 text-align:center;
 white-space:pre-wrap;
 }
@@ -115,11 +115,11 @@ textarea{width:100%;height:200px}
 
 /* MEDIA QUERIES FOR MOBILE */
 @media(max-width:600px){
-.wrap{width:250px;height:250px;top:8%} /* mobile par parrots thoda bada */
-svg{width:250px;height:250px}
-#msg{font-size:28px;top:60%} /* mobile text upar shift kiya */
-#photo{width:350px;height:350px;top:50%;left:50%;transform:translate(-50%,-50%)} /* mobile photo */
-#message{font-size:18px;padding:15px}
+.wrap{width:300px;height:300px;top:5%} /* mobile par parrots bada */
+svg{width:300px;height:300px}
+#msg{font-size:32px;top:60%} /* mobile text */
+#photo{width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%)} /* mobile photo bada */
+#message{font-size:20px;padding:15px}
 }
 </style>
 </head>
@@ -130,7 +130,7 @@ svg{width:250px;height:250px}
 <div id="p1" class="page">
 
 <div class="wrap left">
-<svg id="leftBird" width="500" height="500" viewBox="0 0 340 340">
+<svg id="leftBird" width="600" height="600" viewBox="0 0 340 340">
 
 <ellipse cx="170" cy="30" rx="80" ry="16" fill="none" stroke="white" stroke-width="5"/>
 
@@ -151,7 +151,7 @@ svg{width:250px;height:250px}
 </div>
 
 <div class="wrap right">
-<svg width="500" height="500" viewBox="0 0 340 340">
+<svg width="600" height="600" viewBox="0 0 340 340">
 
 <ellipse cx="170" cy="30" rx="80" ry="16" fill="none" stroke="white" stroke-width="5"/>
 
