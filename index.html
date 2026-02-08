@@ -11,7 +11,6 @@ html,body{
     margin:0;
     height:100%;
     font-family:Arial;
-    overflow:hidden;
 }
 
 /* PAGE 1 */
@@ -45,16 +44,16 @@ html,body{
     height:600px;
 }
 .left{
-    left:-750px;              /* ⬅ MORE SPACE */
+    left:-800px;
     animation:flyL 2s forwards;
 }
 .right{
-    right:-750px;             /* ➡ MORE SPACE */
+    right:-800px;
     animation:flyR 2s forwards;
 }
 
-@keyframes flyL{to{left:2%}}
-@keyframes flyR{to{right:2%}}
+@keyframes flyL{to{left:3%}}
+@keyframes flyR{to{right:3%}}
 
 .knock{animation:knock .25s 6}
 @keyframes knock{50%{transform:translateX(-14px)}}
@@ -74,6 +73,7 @@ html,body{
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    z-index:10;
 }
 
 #intro svg{
@@ -95,22 +95,27 @@ html,body{
     width:100%;
     text-align:center;
     font-size:50px;
+    font-weight:bold;
 }
 
 /* FINAL PAGE */
 #paperFull{
     display:none;
-    height:100vh;
-    overflow-y:auto;              /* ✅ smooth scroll */
+    min-height:100vh;
+    padding-top:120px;
+    padding-bottom:200px;
     text-align:center;
+    position:relative;
+    z-index:1;
 }
 
+/* BACKGROUND STRIP — PURE BACK */
 #paperFull::before{
     content:"";
     position:fixed;
     inset:0;
     background:radial-gradient(circle,#f8e9b8,#c99738);
-    z-index:-1;
+    z-index:-2;           /* 🔥 pushed fully behind */
 }
 
 /* FIXED IMAGE */
@@ -127,6 +132,7 @@ html,body{
     overflow:hidden;
     opacity:.45;
     pointer-events:none;
+    z-index:-1;           /* 🔥 above background, below text */
 }
 
 #photo img{
@@ -137,34 +143,45 @@ html,body{
 
 /* TEXT */
 #message{
-    margin-top:calc(50vh - 520px);   /* 🔥 TEXT STARTS JUST ABOVE IMAGE */
-    padding:40px 30px 120px;
+    margin:0 auto;
+    padding:40px 40px 220px;
     font-size:26px;
-    line-height:1.7;
+    text-align:center;
     white-space:pre-wrap;
-    font-family:'Playfair Display', serif;
+    line-height:1.6;
+    position:relative;
+    z-index:2;            /* 🔥 text always on top */
 }
 
 /* MOBILE */
 @media(max-width:600px){
-
-    .wrap{width:260px;height:260px;}
-    svg{width:260px;height:260px;}
-
-    #msg{font-size:32px;top:60%;}
-
+    .wrap{
+        width:260px;
+        height:260px;
+        top:5%;
+    }
+    svg{
+        width:260px;
+        height:260px;
+    }
+    #msg{
+        font-size:32px;
+        top:60%;
+    }
     #photo{
         width:420px;
         height:420px;
     }
-
     #message{
-        margin-top:calc(50vh - 260px);
         font-size:20px;
-        padding:20px 15px 100px;
+        padding:30px 20px 260px;
     }
-
-    #intro svg{width:450px;}
+    #intro svg{
+        width:580px;
+    }
+    #hint{
+        font-size:22px;
+    }
 }
 </style>
 </head>
@@ -240,8 +257,9 @@ const message=document.getElementById("message");
 
 /* LOAD FULL TEXT */
 fetch("https://raw.githubusercontent.com/afmanali14/birthday-letter/refs/heads/main/letter.text")
-.then(r=>r.text())
-.then(t=>message.innerText=t);
+.then(res=>res.text())
+.then(text=>message.innerText=text)
+.catch(()=>message.innerText="Message failed to load.");
 
 setTimeout(()=>{
     bird.classList.add("knock");
@@ -265,7 +283,7 @@ flap.onclick=()=>{
     setTimeout(()=>{
         intro.style.display="none";
         final.style.display="block";
-        document.body.style.overflow="hidden";
+        document.body.style.overflow="auto";
     },800);
 };
 </script>
