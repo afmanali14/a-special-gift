@@ -11,6 +11,7 @@ html,body{
     margin:0;
     height:100%;
     font-family:Arial;
+    overflow:hidden;
 }
 
 /* PAGE 1 */
@@ -44,16 +45,16 @@ html,body{
     height:600px;
 }
 .left{
-    left:-450px;
+    left:-750px;              /* ⬅ MORE SPACE */
     animation:flyL 2s forwards;
 }
 .right{
-    right:-650px;
+    right:-750px;             /* ➡ MORE SPACE */
     animation:flyR 2s forwards;
 }
 
-@keyframes flyL{to{left:5%}}
-@keyframes flyR{to{right:5%}}
+@keyframes flyL{to{left:2%}}
+@keyframes flyR{to{right:2%}}
 
 .knock{animation:knock .25s 6}
 @keyframes knock{50%{transform:translateX(-14px)}}
@@ -93,19 +94,18 @@ html,body{
     bottom:40px;
     width:100%;
     text-align:center;
-    font-size:20px;
+    font-size:50px;
 }
 
 /* FINAL PAGE */
 #paperFull{
     display:none;
-    min-height:100vh;
-    padding-top:40px;
-    padding-bottom:80px;
+    height:100vh;
+    overflow-y:auto;              /* ✅ smooth scroll */
     text-align:center;
 }
 
-#paperFull:before{
+#paperFull::before{
     content:"";
     position:fixed;
     inset:0;
@@ -113,6 +113,7 @@ html,body{
     z-index:-1;
 }
 
+/* FIXED IMAGE */
 #photo{
     position:fixed;
     top:50%;
@@ -134,21 +135,35 @@ html,body{
     object-fit:cover;
 }
 
+/* TEXT */
 #message{
-    margin-top:300px;
-    padding:30px;
-    font-size:28px;
-    text-align:center;
+    margin-top:calc(50vh - 520px);   /* 🔥 TEXT STARTS JUST ABOVE IMAGE */
+    padding:40px 30px 120px;
+    font-size:26px;
+    line-height:1.7;
     white-space:pre-wrap;
+    font-family:'Playfair Display', serif;
 }
 
 /* MOBILE */
 @media(max-width:600px){
+
     .wrap{width:260px;height:260px;}
     svg{width:260px;height:260px;}
+
     #msg{font-size:32px;top:60%;}
-    #photo{width:420px;height:420px;}
-    #message{font-size:20px;padding:15px;}
+
+    #photo{
+        width:420px;
+        height:420px;
+    }
+
+    #message{
+        margin-top:calc(50vh - 260px);
+        font-size:20px;
+        padding:20px 15px 100px;
+    }
+
     #intro svg{width:450px;}
 }
 </style>
@@ -158,6 +173,7 @@ html,body{
 
 <!-- PAGE 1 -->
 <div id="p1" class="page">
+
 <div class="wrap left">
 <svg id="leftBird" viewBox="0 0 340 340">
 <ellipse cx="170" cy="30" rx="80" ry="16" fill="none" stroke="white" stroke-width="5"/>
@@ -222,15 +238,10 @@ const flap=document.getElementById("flap");
 const final=document.getElementById("paperFull");
 const message=document.getElementById("message");
 
-/* 🔥 LOAD FULL TEXT FROM GITHUB RAW (NO CUTTING) */
+/* LOAD FULL TEXT */
 fetch("https://raw.githubusercontent.com/afmanali14/birthday-letter/refs/heads/main/letter.text")
-.then(res=>res.text())
-.then(text=>{
-    message.innerText=text;
-})
-.catch(()=>{
-    message.innerText="Message failed to load.";
-});
+.then(r=>r.text())
+.then(t=>message.innerText=t);
 
 setTimeout(()=>{
     bird.classList.add("knock");
@@ -254,12 +265,10 @@ flap.onclick=()=>{
     setTimeout(()=>{
         intro.style.display="none";
         final.style.display="block";
-        document.body.style.overflow="auto";
+        document.body.style.overflow="hidden";
     },800);
 };
 </script>
 
 </body>
 </html>
-
-
