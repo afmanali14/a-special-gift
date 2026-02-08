@@ -44,16 +44,16 @@ html,body{
     height:600px;
 }
 .left{
-    left:-800px;
+    left:-700px;
     animation:flyL 2s forwards;
 }
 .right{
-    right:-800px;
+    right:-700px;
     animation:flyR 2s forwards;
 }
 
-@keyframes flyL{to{left:3%}}
-@keyframes flyR{to{right:3%}}
+@keyframes flyL{to{left:2%}}
+@keyframes flyR{to{right:2%}}
 
 .knock{animation:knock .25s 6}
 @keyframes knock{50%{transform:translateX(-14px)}}
@@ -73,11 +73,10 @@ html,body{
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    z-index:10;
 }
 
 #intro svg{
-    width:560px;
+    width:620px;
     max-width:90vw;
 }
 
@@ -94,28 +93,26 @@ html,body{
     bottom:40px;
     width:100%;
     text-align:center;
-    font-size:50px;
-    font-weight:bold;
+    font-size:50px; /* 👈 hint font size */
 }
 
 /* FINAL PAGE */
 #paperFull{
     display:none;
     min-height:100vh;
-    padding-top:120px;
-    padding-bottom:200px;
+    padding-bottom:120px;
     text-align:center;
     position:relative;
     z-index:1;
 }
 
-/* BACKGROUND STRIP — PURE BACK */
-#paperFull::before{
+/* BACKGROUND STRIP – TEXT KE PEECHHE */
+#paperFull:before{
     content:"";
     position:fixed;
     inset:0;
     background:radial-gradient(circle,#f8e9b8,#c99738);
-    z-index:-2;           /* 🔥 pushed fully behind */
+    z-index:-2;
 }
 
 /* FIXED IMAGE */
@@ -132,7 +129,7 @@ html,body{
     overflow:hidden;
     opacity:.45;
     pointer-events:none;
-    z-index:-1;           /* 🔥 above background, below text */
+    z-index:-1;
 }
 
 #photo img{
@@ -141,44 +138,52 @@ html,body{
     object-fit:cover;
 }
 
-/* TEXT */
+/* 🔥 TEXT STARTS JUST ABOVE IMAGE */
 #message{
-    margin:0 auto;
-    padding:40px 40px 220px;
+    margin-top:calc(50vh - 470px); /* 👈 image ke just upar */
+    padding:40px 30px;
     font-size:26px;
+    line-height:1.7;
     text-align:center;
     white-space:pre-wrap;
-    line-height:1.6;
     position:relative;
-    z-index:2;            /* 🔥 text always on top */
+    z-index:2;
 }
 
 /* MOBILE */
 @media(max-width:600px){
+
     .wrap{
         width:260px;
         height:260px;
         top:5%;
     }
+
     svg{
         width:260px;
         height:260px;
     }
+
     #msg{
         font-size:32px;
         top:60%;
     }
+
     #photo{
         width:420px;
         height:420px;
     }
+
     #message{
         font-size:20px;
-        padding:30px 20px 260px;
+        padding:20px 15px;
+        margin-top:calc(50vh - 230px); /* 👈 mobile image ke just upar */
     }
+
     #intro svg{
-        width:580px;
+        width:600px;
     }
+
     #hint{
         font-size:22px;
     }
@@ -230,7 +235,7 @@ html,body{
 <rect x="10" y="40" width="280" height="150" fill="white" stroke="black" stroke-width="6"/>
 <line x1="10" y1="190" x2="150" y2="105" stroke="black" stroke-width="6"/>
 <line x1="290" y1="190" x2="150" y2="105" stroke="black" stroke-width="6"/>
-<text x="150" y="168" text-anchor="middle" font-size="16" fill="#29a8ff">
+<text x="150" y="168" text-anchor="middle" font-size="16" fill="#29a8ff" style="font-family:'Playfair Display'">
 A Letter from Heaven
 </text>
 <polygon id="flap" points="10,40 150,115 290,40" fill="white" stroke="black" stroke-width="6"/>
@@ -258,8 +263,8 @@ const message=document.getElementById("message");
 /* LOAD FULL TEXT */
 fetch("https://raw.githubusercontent.com/afmanali14/birthday-letter/refs/heads/main/letter.text")
 .then(res=>res.text())
-.then(text=>message.innerText=text)
-.catch(()=>message.innerText="Message failed to load.");
+.then(text=>{ message.innerText=text; })
+.catch(()=>{ message.innerText="Message failed to load."; });
 
 setTimeout(()=>{
     bird.classList.add("knock");
